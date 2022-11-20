@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getPosts, getPostValue } from "./redux/features/postSlice"
 import './App.css';
 import { useAppDispatch, useAppSelector } from './hooks';
@@ -11,10 +11,12 @@ function App() {
     dispatch(getPosts())
   }, [])
   return (
-    <>{posts.length > 0 && posts.map((item:any) => {
-     return(<h5 key={item.id}>{item.title}</h5>) 
-    })}</>
+    <>{posts && posts?.particularities}</>
+    // <>{posts.length > 0 && posts.map((item:any) => {
+    //  return(<h5 key={item.project_id}>{item.particularities}</h5>) 
+    // })}</>
   );
+
 }
 
 export default App;

@@ -6,21 +6,22 @@ import axios from 'axios';
 
 export const getPosts = createAsyncThunk("posts/getPosts", async () => {
 
-    const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
-
+    const res = await axios.get("https://tree-nation.com/api/species/45");
     return res.data;
 
 
 })
-
+interface speciesTypes {
+    particularities?: string | null
+}
 interface UsersState {
-    posts: [];
+    posts: speciesTypes;
     loading: boolean;
     error: string
 }
 
 const initialState = {
-    posts: [],
+    posts: {},
     loading: false,
     error: ""
 } as UsersState
